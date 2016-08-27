@@ -3,6 +3,7 @@ package com.hu.intentandbroadcastreceiver;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +19,13 @@ public class MainActivity extends AppCompatActivity {
                 startCall();
             }
         });
+        Animal animal = getCat();
+        animal.eat();
+        animal.run();
+        animal.play();
+        Mammals mammals = new Dog();
+        mammals.getMethod();
+
 
     }
 
@@ -35,5 +43,28 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(intent);
 //        }
 
+    }
+
+    public Animal getCat() {
+        return new Cat();
+    }
+
+
+    private class Cat implements Animal {
+
+        @Override
+        public void eat() {
+            Log.d(TAG, "cat eat");
+        }
+
+        @Override
+        public void run() {
+            Log.d(TAG, "cat run");
+        }
+
+        @Override
+        public void play() {
+            Log.d(TAG, "cat play");
+        }
     }
 }
